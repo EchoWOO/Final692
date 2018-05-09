@@ -20,10 +20,13 @@ h5 {
     vertical-align: middle;
 }
 
-#intro {
-  /*box-sizing: border-box;*/
-  z-index: 10001;
-  vertical-align: middle;
+#logo{
+  width: 150px;
+  position:absolute;
+  top: 55px;
+  left: 620px;
+  bottom: 100px;
+  padding: 20px;
 }
 
 .originalBar {
@@ -44,7 +47,6 @@ h5 {
   padding-bottom: 20px;
   position:absolute;
   font-size: 17px;
-  position: absolute;
 }
 
 .leaflet-control-zoom {
@@ -116,4 +118,66 @@ a {
 .cartodb-legend choropleth{
   width: 270px;
   height: 40px;
+}
+
+#modal {
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(15, 49, 61, 1);
+  color:rgba(39, 69, 79, 1);
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 15%;
+  padding-bottom:15%;
+  padding-left:25%;
+  padding-right: 25%;
+}
+
+#intro {
+  /*box-sizing: border-box;*/
+  z-index: 10001;
+  vertical-align: middle;
+}
+
+#intro > p:nth-child(1){
+  font-size:30px;
+  font-weight: bold;
+  color: white;
+}
+
+#intro > p:nth-child(2){
+  font-size:16px;
+  font-weight: lighter;
+  color:rgba(92, 147, 165,0.7);
+  text-align: left;
+}
+
+#source {
+  font-size:15px;
+  font-weight: lighter;
+  color:rgba(34, 107, 137,0.7);
+  margin-top:25px;
+  text-align: middle;
+}
+
+.sourceA{
+  color:rgba(99, 139, 155,1);
+  text-decoration: underline;
+}
+
+#startMap {
+  z-index: 10001;
+  box-sizing: border-box;
+  font-size: 28px;
+  font-weight: lighter;
+  font-variant: small-caps;
+  position:relative;
+  border-radius: 5px;
+  border-style: solid;
+  color: black;
+  border: solid 2px rgba(61, 95, 107,0.5);
+  background-color: '#6498aa';
+  padding: 0px 15px;
 }

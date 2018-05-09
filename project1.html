@@ -12,6 +12,24 @@
     <link rel="stylesheet" href="css/style1.css" />
   </head>
   <body>
+    <!-- fullScreenModal -->
+    <div id="modal" class="map">
+      <img id = "logo" src="logo_MNlead.png">
+      <div id="intro">
+        <p>Predicting Household Lead Probabilities in Minneapolis</p>
+        <p>As part of our work for the MUSA Practicum class, we performed an analysis to help the City of Minneapolis to proactively identify which residences likely have hazardous lead paint and should be targeted for remediation efforts. To display our results publicly, this is an application we made to display the outcomes of our analysis on a map to display predicted probability of lead at the parcel level.
+Our aim was to create a web page from which residents or city officials could easily access additional information depending on their interests. Users curious about the process for developing the risk scores could access our full explanation of the modeling process through a hyperlink on the intro page. While those just wanting to understand their risk of household lead could jump right to the lead probability points. More interested users could fully explore a range of children’s elevated blood lead level data and census to see how they visually compare to instances of high lead risk. </p>
+      </div>
+      <button id="startMap">Start</button>
+      <div id="source">
+        <p>Data source:<a href="http://opendata.minneapolismn.gov/" class="sourceA"> Minneapolis Open Data </a>,
+          <a href="https://carto.com/" class="sourceA"> Carto</a>,
+          <a href="http://getbootstrap.com" class="sourceA"> Bootstrap</a>,
+          <a href="http://underscorejs.org/" class="sourceA"> Underscore.js</a>,
+          <a href="https://jquery.com/" class="sourceA"> jQuery.js</a></p>
+      </div>
+    </div>
+
     <!-- topbar -->
     <div class="topbar" id="top" style="vertical-align:middle">
       <ul class="nav nav-pills">

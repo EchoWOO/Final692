@@ -19,23 +19,6 @@ var sublayer2;
 var sublayer3;
 
 
-  //
-  // To add your Carto visualization, change cartoUserName and cartoVizId to your username and
-  // project ID. These values can be found in the URL of your map on Carto:
-  // - https://[cartoUserName].carto.com/[cartoVizId]
-
-  // Unfortunately, only some visualizations styles are available in this method:
-  //
-  // - None
-  // - Animated
-  // - Pixel
-  //
-  // This is a bummer. But don't worry, we'll learn about how to do more powerful visualizations
-  // with Carto next week when we learn about SQL
-
-  // To add visualizations created with the Analysis feature, you will need to export the data to a
-  // GeoJSON. From there, you can either import the GeoJSON to Carto or use Leaflet's L.geoJson.
-
   var cartoUserName = 'echoxiaowu1993';
   var cartoVizId = '8b7b846f-6556-4c59-91cf-468e390daeee';
   var cartoVizId1 = 'c7b147d6-932a-4ce2-b864-14bf9ba7e458';
@@ -133,7 +116,7 @@ $("#EBLL1").on('click', function(){
   sublayer2.hide();
   sublayer3.hide();
   tracts1.setSQL("SELECT * from minleadtracts where pctebllct = 'No significant difference'");
-  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0;} #layer::outline { line-width: 1; line-color: #00FF7F; line-opacity: 1; }');
+  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0.5;} #layer::outline { line-width: 2; line-color: #f7feae; line-opacity: 1; }');
 });
 $("#EBLL2").on('click', function(){
   tracts.show();
@@ -143,7 +126,7 @@ $("#EBLL2").on('click', function(){
   sublayer2.hide();
   sublayer3.hide();
   tracts1.setSQL("SELECT * from minleadtracts where pctebllct = 'Significantly higher (1-2 times)'");
-  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0;} #layer::outline { line-width: 1; line-color: #FFFF00; line-opacity: 1; }');
+  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0.5;} #layer::outline { line-width: 2; line-color: #f7feae; line-opacity: 1; }');
 });
 $("#EBLL3").on('click', function(){
   tracts.show();
@@ -153,7 +136,7 @@ $("#EBLL3").on('click', function(){
   sublayer2.hide();
   sublayer3.hide();
   tracts1.setSQL("SELECT * from minleadtracts where pctebllct = 'Significantly higher (3+ times)'");
-  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0;} #layer::outline { line-width: 1; line-color: #FF0000; line-opacity: 1; }');
+  tracts1.setCartoCSS('#layer { polygon-fill: #5F4690; polygon-opacity: 0.5;} #layer::outline { line-width: 2; line-color: #f7feae; line-opacity: 1; }');
 });
 $("#EBLL4").on('click', function(){
   tracts.hide();
@@ -352,84 +335,20 @@ $("#AllProb").on('click',function(){
 $("#HighProb").on('click',function(){
   points.show();
   points.setSQL('SELECT * from pointsjson2 where stpws_p > .8');
-  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: 'red'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
+  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: '#2a5674'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
 });
 $("#MedianProb").on('click',function(){
   points.show();
   points.setSQL('SELECT * from pointsjson2 where stpws_p < .8 AND stpws_p > .3');
-  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: #CCCC00; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
+  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: '#4f90a6'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
 });
 $("#LowProb").on('click',function(){
   points.show();
   points.setSQL('SELECT * from pointsjson2 where stpws_p < .3');
-  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: 'blue'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
+  points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: '#85c4c9'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
 });
 $("#HidePoints").on('click',function(){
   points.hide();
   // points.setSQL('SELECT * from pointsjson2 where stpws_p < .3');
   // points.setCartoCSS("#pointsjson2 {marker-width: 8; marker-fill: 'blue'; marker-fill-opacity: 1; marker-allow-overlap: true; marker-line-width: 1; marker-line-color: #ffffff; marker-line-opacity: 1;}");
 });
-//
-// // var layers = {
-// //           'High Probabilty': {
-// //             sql:'SELECT * FROM pointsjson2 where stpws_p > 0.7',
-// //             cartocss: '#layer { marker-fill: red; }'
-// //           },
-// //           'Medium Probabilty': {
-// //             sql: 'SELECT * FROM pointsjson2 where stpws_p < 0.7 and stpws_p > 0.3',
-// //             cartocss: '#layer { marker-fill: yellow; }'
-// //           },
-// //           'Low Probabilty': {
-// //             sql: 'SELECT * FROM pointsjson2 where stpws_p < 0.3',
-// //             cartocss: '#layer { marker-fill: blue; }'
-// //           }
-// //         };
-// //         cartodb.createLayer(map,layerUrl1,{
-// //                    sublayers: []
-// //                  })
-// //                  .addTo(map)
-// //                  .done(function(layer){
-// //                    // When the layers inputs change fire this
-// //                    $("input[name='layer']").change(function(){
-// //
-// //                      // Clear the sublayers
-// //                      layer.getSubLayers().forEach(function(sublayer){sublayer.remove();});
-// //
-// //                      // For every check activated, add a sublayer
-// //                      $.each($("input[name='layer']:checked"), function(){
-// //                          layer.createSubLayer(layers[$(this).attr("id")]);
-// //                      });
-// //                    });
-//
-// // $("#HighProb").on('click', function(){
-// //   cartodb.createLayer(
-// //       map,
-// //       layerUrl1,
-// //       {
-// //           https: true,
-// //           legends: true,
-// //           cartodb_logo:true,
-// //           layerIndex:1
-// //       },function(layer){
-// //         layer.createSubLayer({
-// //           sql:'SELECT * FROM pointsjson2 where stpws_p > 0.8',
-// //           cartocss: '#layer { marker-fill: red; }'
-// //         });
-// //       }).addTo(map);
-//
-//
-// // / 'SELECT * FROM pointsjson2 where stpws_p > 0.8' }]
-//   // change points:
-//   // points.setSQL('SELECT * FROM pointsjson2')
-//   // points.setCartoCSS('')
-//
-//   // change districts:
-//   // districts.setSQL('SELECT * FROM minblocksvars')
-//   // points.setCartoCSS('')
-//
-//   //cartodb.createLayer(map, layerUrl)
-//   //  .on('done', function(layer) {
-//   //    layer.addTo(map);
-//   //  }).on('error', function(err) {
-//   //    console.log(err);
-// });
